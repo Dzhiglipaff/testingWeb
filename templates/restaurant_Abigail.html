@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Dragon Bites - Restaurants</title>
+    <link rel="stylesheet" href="static/restaurant_Abigail.css">
+</head>
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="../static/dragonlogo.png" alt="Dragon Bites Logo">
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Free events</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="#">Meal Mapper</a></li>
+            <li><a href="/listing">Restaurants</a></li>
+        </ul>
+    </nav>
+    
+    <h3 align="center">Affordable, free and campus approved food spots for Drexel Students</h3>
+    
+    <div class="main-wrapper">
+        <aside class="restaurant-filter-sidebar">
+            <div class="restaurant-filter-header">
+                <h3 class="restaurant-filter-title">FILTERS</h3>
+                <button class="restaurant-filter-clear">Clear All</button>
+            </div>
+            <hr>
+            
+            <div class="restaurant-filter-section">
+                <h4>Payment Methods</h4>
+                <label class="restaurant-filter-label">
+                    <input type="checkbox"> Dragon Dollars
+                </label>
+                <label class="restaurant-filter-label">
+                    <input type="checkbox"> Dining Dollars
+                </label>
+                <label class="restaurant-filter-label">
+                    <input type="checkbox"> Card
+                </label>
+                <label class="restaurant-filter-label">
+                    <input type="checkbox"> Cash
+                </label>
+            </div>
+            <hr>
+            
+            <div class="restaurant-filter-section">
+                <h4>Dietary Options</h4>
+                <label class="restaurant-filter-label">
+                    <input type="checkbox"> Vegetarian
+                </label>
+                <label class="restaurant-filter-label">
+                    <input type="checkbox"> Halal
+                </label>
+            </div>
+            <hr>
+            
+            <div class="restaurant-filter-section">
+                <h4>Food Events</h4>
+                <label class="restaurant-filter-label">
+                    <input type="checkbox"> Free Food Events
+                </label>
+            </div>
+            <hr>
+            
+            <div class="restaurant-filter-section">
+                <h4>Price Range</h4>
+                <div class="price-inputs">
+                    <input type="number" placeholder="Min $" min="0">
+                    <span>-</span>
+                    <input type="number" placeholder="Max $" min="0">
+                </div>
+            </div>
+            <hr>
+            
+            <button class="restaurant-filter-apply">Apply Filters</button>
+            
+            <div class="filter-dragon-container">
+                <img src="../static/FilterDragonImage.png" alt="Dragon Logo">
+            </div>
+        </aside>
+        
+        <div class="content-area">
+            <h2>Food listing</h2>
+            
+            <div class="restaurant-grid">
+                <div class="restaurant-card" onclick="openModal('Landmark Americana')">
+                    <h3>Landmark Americana</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Wild Blue')">
+                    <h3>Wild Blue</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Chick-Fil-A')">
+                    <h3>Chick-Fil-A</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Urban Eatery')">
+                    <h3>Urban Eatery</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Chipotle')">
+                    <h3>Chipotle</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Han Dynasty')">
+                    <h3>Han Dynasty</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Sabrina\'s Cafe')">
+                    <h3>Sabrina's Cafe</h3>
+                </div>
+                <div class="restaurant-card" onclick="openModal('Tataki Ramen')">
+                    <h3>Tataki Ramen</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="restaurantModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-image">
+            </div>
+            <h2 id="modal-name">Restaurant Name</h2>
+            <div id="modal-rating">★★★★☆</div>
+            <p id="modal-description">Description will go here</p>
+            <a href="#" id="modal-link" target="_blank">Visit Website</a>
+        </div>
+    </div>
+
+    <script>
+        function getImageName(restaurantName) {
+            const imageMap = {
+                'Landmark Americana': '../static/LandMark.jpeg',
+                'Wild Blue': '../static/Wild_Blue.jpeg',
+                'Chick-Fil-A': '../static/Chick-Fil-A.jpeg',
+                'Urban Eatery': '../static/Urban_Eatery.jpeg',
+                'Chipotle': '../static/Chipotle.jpeg',
+                'Han Dynasty': '../static/Han_Dynasty.jpeg',
+                'Sabrina\'s Cafe': '../static/Sabrina_s_Cafe.avif',
+                'Tataki Ramen': '../static/Tataki_Ramen.jpeg'
+            };
+            return imageMap[restaurantName];
+        }
+
+        const restaurantData = {
+            'Landmark Americana': {
+                rating: '4.0 ★★★★☆',
+                description: 'Lively American restaurant and bar near Drexel campus. Known for pub grub, cocktails, and multiple TVs for sports. Offers happy hour food, great cocktails, and is good for watching sports. Usually no wait, people typically spend 45 min to 2.5 hours here.',
+                website: 'https://www.landmarkamericana.com'
+            },
+            'Wild Blue': {
+                rating: '4.0 ★★★★☆',
+                description: 'Popular sushi vendor located within the Northside Dining Terrace (NDT). Offers fresh, made-to-order sushi, poke bowls, and specialized rolls. Accepts dining dollars, Dragon Dollars, and credit cards.',
+                website: 'https://drexel.mydininghub.com/en/location/wild-blue-sushi'
+            },
+            'Chick-Fil-A': {
+                rating: '3.7 ★★★☆☆',
+                description: 'Fast-food chain serving chicken sandwiches, nuggets, salads, and sides. Located in Northside Dining Terrace. Offers outdoor seating, vegetarian options, and Wi-Fi.',
+                website: 'https://www.chick-fil-a.com/locations/pa/drexel-university'
+            },
+            'Urban Eatery': {
+                rating: '2.4 ★★☆☆☆',
+                description: 'Cafeteria-style dining located at 3400 Lancaster Ave. A convenient on-campus option for a quick meal.',
+                website: 'https://drexel.mydininghub.com/en/location/urban-eatery'
+            },
+            'Chipotle': {
+                rating: '2.8 ★★★☆☆',
+                description: 'Casual Mexican restaurant offering design-your-own burritos, tacos, and bowls. Located in The Summit at University City. Offers vegetarian options.',
+                website: 'https://locations.chipotle.com/pa/philadelphia/3400-lancaster-ave'
+            },
+            'Han Dynasty': {
+                rating: '4.3 ★★★★☆',
+                description: 'Spicy Sichuan restaurant known for its heat-rated dishes like dan dan noodles. Offers happy hour food, a private dining room, and great cocktails. Usually no wait, people typically spend 45 min to 1.5 hours here.',
+                website: 'https://www.handynasty.net/location/han-dynasty-university-city/'
+            },
+            'Sabrina\'s Cafe': {
+                rating: '4.5 ★★★★★',
+                description: 'Relaxed New American cafe with a devoted following for its breakfast and brunch. Known for brioche French toast, chicken and waffles, generous portions, and fresh ingredients. Has a cozy, historic atmosphere.',
+                website: 'https://www.sabrinascafe.com/location/sabrinas-cafe-university-city/'
+            },
+            'Tataki Ramen': {
+                rating: '4.7 ★★★★★',
+                description: 'Modern Japanese eatery serving ramen, sushi, and sashimi. Known for generous portions, fresh ingredients, and affordable lunch specials. Has a lively, bright, and clean atmosphere.',
+                website: 'https://www.universitycity.org/diningdays/tataki/'
+            }
+        };
+
+        function openModal(restaurantName) {
+            const data = restaurantData[restaurantName] || {
+                rating: '★★★★☆',
+                description: 'Description coming soon.',
+                website: '#'
+            };
+            
+            document.getElementById('modal-name').textContent = restaurantName;
+            document.getElementById('modal-rating').textContent = data.rating;
+            document.getElementById('modal-description').textContent = data.description;
+            document.getElementById('modal-link').href = data.website;
+            
+            const imagePath = getImageName(restaurantName);
+            document.getElementById('modal-image').innerHTML = '<img src="' + imagePath + '" alt="' + restaurantName + '" style="width:100%; height:100%; object-fit:cover;">';
+            
+            document.getElementById('restaurantModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('restaurantModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById('restaurantModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

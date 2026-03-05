@@ -43,7 +43,6 @@ def index():
         if 'diningDollars' in session['filters']:
             b.usesDiningDollars()
         if 'card' in session['filters']:
-
             b.takesCard()
         if 'cash' in session['filters']:
             b.takesCash()
@@ -81,6 +80,10 @@ def index():
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+@app.route("/listing")
+def listing():
+    return render_template("restaurant_abigail.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -31,5 +31,3 @@ def insertNewInformation(info):
                 quantityInsertion(info[i])
 info= extractInformation()
 insertNewInformation(info)
-         
-

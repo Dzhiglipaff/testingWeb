@@ -6,22 +6,19 @@ body {
 }
 
 header {
-  border: thin solid white;
-  background-image: url("dragonlogo.png");
-
-  background-size: contain;
+  border-color: #FFCF40;
+  background-image: url('dragonlogo.png');
+  background-size: 75%;
   height: 150px;
   width: 100%;
   padding: 20px 0;
-  background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* Centers navigation bar horizontally */
   align-items: center;
-  /* Push navigation bar near the bottom */
-  padding-top: 100px;
+  padding-top: 40px;
   padding-bottom: 20px;
 }
 
@@ -41,27 +38,24 @@ header h2 {
 nav ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 10px;
   display: flex;
-  /* Makes navigation bar horizontal */
   justify-content: center;
-  /* Centers the links */
   background-color: #192841;
   border-radius: 10px;
   overflow: hidden;
 }
 
-nav li {
-  padding: 10px;
-}
-
-nav li:last-child {
+nav li a {
+  color: bisque;
   border-right: none;
+  padding: 10px;
+  text-decoration: none;
 }
 
 nav li a:hover {
-  background-color: #555;
-  color: #FF9933;
+  background-color: #fff;
+  color: #FFCF40;
 }
 
 .filter {
@@ -82,24 +76,24 @@ nav li a:hover {
   background: none;
   padding: 8px;
   margin-top: auto;
-  /* Pushes it to the bottom */
   cursor: pointer;
 }
 
 #banner {
-  /* Layout */
+
   flex: 2;
   display: flex;
   flex-direction: column;
-  min-height: 400px;
-  /* The "Square" Border */
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  min-height: 100px;
   border: 2px solid #333;
   border-radius: 0;
 
   background-color: white;
-  padding: 0;
-  margin: 0 13% 0 10%;
-  overflow: hidden;
+  padding: 40px;
+  margin: 20px auto;
 
   box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.1);
 }
@@ -119,11 +113,8 @@ nav li a:hover {
   border: 2px solid #000;
   flex: 0 0 220px;
   border-radius: 0;
-  /* Keeps it square */
   padding: 15px;
   background-color: #fff;
-
-  /* Ensures labels stack vertically like your sketch */
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -136,4 +127,49 @@ nav li a:hover {
 
 .content-area {
   flex: 1;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 60px;
+  max-width: 900px;
+}
+
+.about-text {
+  text-align: left;
+  max-width: 400px;
+}
+
+.about-text h3 {
+  font-size: 40px;
+  margin: 0 0 10px 0;
+}
+
+.about-image {
+  width: 350px;
+  height: 400px;
+  object-fit: cover;
+  border: 1px solid #fff;
+  flex-shrink: 0;
+}
+
+.about-body {
+  background-color: #192841;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 50px 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+strong {
+  font-family: "Times New Roman", Times, serif;
+  color: gold;
+  font-size: 20px;
 }
